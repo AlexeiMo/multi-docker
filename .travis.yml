@@ -9,14 +9,14 @@ script:
   - docker run -e CI=true alex/react-test npm test -- --coverage
   
 after_success:
-  - docker build -t alex/multi-client ./client
-  - docker build -t alex/multi-nginx ./nginx
-  - docker build -t alex/multi-server ./server
-  - docker build -t alex/multi-worker ./worker
+  - docker build -t alexmo2000/multi-client ./client
+  - docker build -t alexmo2000/multi-nginx ./nginx
+  - docker build -t alexmo2000/multi-server ./server
+  - docker build -t alexmo2000/multi-worker ./worker
   # Log in th the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push alex/multi-client
-  - docker push alex/multi-nginx
-  - docker push alex/multi-server
-  - docker push alex/multi-worker
+  - docker push alexmo2000/multi-client
+  - docker push alexmo2000/multi-nginx
+  - docker push alexmo2000/multi-server
+  - docker push alexmo2000/multi-worker
